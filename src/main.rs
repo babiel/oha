@@ -6,6 +6,7 @@ use http::header::{HeaderName, HeaderValue};
 use printer::PrintMode;
 use std::sync::Arc;
 use std::{io::Read, str::FromStr};
+use cidr::*;
 
 mod client;
 mod histogram;
@@ -116,6 +117,8 @@ Examples: -z 10s -z 3m.",
     connect_to: Vec<ConnectToEntry>,
     #[clap(help = "Disable the color scheme.", long = "disable-color")]
     disable_color: bool,
+    #[clap(help = "Use Proxy-Protocol to connect. The Source-Address can be given as IP or CIDR.", long = "proxy-protocol")]
+    proxy_protocol: Option<IpCidr>
 }
 
 /// An entry specified by `connect-to` to override DNS resolution and default

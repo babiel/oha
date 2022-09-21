@@ -211,6 +211,9 @@ impl Client {
         } else {
             let stream = tokio::net::TcpStream::connect(addr).await?;
             stream.set_nodelay(true)?;
+
+            // self.
+
             // stream.set_keepalive(std::time::Duration::from_secs(1).into())?;
             let (send, conn) = hyper::client::conn::handshake(stream).await?;
             tokio::spawn(conn);

@@ -50,6 +50,8 @@ base64 = "0.13.0"
 lazy_static = "1.4.0"
 rand = "0.8"
 trust-dns-resolver = "0.22.0"
+proxy-protocol = "0.5.0"
+cidr = "0.2.1"
 
 [target.'cfg(unix)'.dependencies]
 rlimit = "0.8.3"
